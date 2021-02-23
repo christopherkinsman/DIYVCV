@@ -1,0 +1,44 @@
+﻿
+@model DIYVCV.Models.ViewModels.ShowComponent
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Module Description</h2>
+<div class="navbar">
+    <a class="navlink" href="/Component/Update/@Model.component.ComponentId">Update Component</a></br>
+    <a class="navlink" href="/Component/DeleteConfirm/@Model.component.ComponentId">Delete Component</a>
+</div>
+
+<h4>@Model.component.ComponentName</h4>
+<div style="overflow:hidden;">
+    <div style="float:left; margin-right:2%; width:49%;">
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.component.ComponentId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.component.ComponentId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.component.ComponentName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.component.ComponentName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.component.ComponentValue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.component.ComponentValue)
+            </dd>
+        </dl>
+    </div>
+</div>

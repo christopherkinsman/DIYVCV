@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DIYVCV.Models.ComponentDto>
+
+<h2>List Modules</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Component/Create">Create Component</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ComponentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComponentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComponentValue)
+        </th>
+        <th></th>
+    </tr> 
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="/Component/Show/@item.ComponentId"> @Html.DisplayFor(modelItem => item.ComponentId)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComponentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComponentValue)
+            </td>
+        </tr>
+    }
+</table>

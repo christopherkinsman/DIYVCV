@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DIYVCV.Models.ModuleDto>
+
+<h2>List of Modules</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Module/Create">Create Module</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ModuleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModuleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModuleBrand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModuleCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModuleDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModuleLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModuleSchematic)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleId)
+            </td>
+            <td>
+                <a href="/Module/Show/@item.ModuleId"> @Html.DisplayFor(modelItem => item.ModuleName)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleBrand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleSchematic)
+            </td>
+        </tr>
+    }
+
+</table>

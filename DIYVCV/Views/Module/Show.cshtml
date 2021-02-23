@@ -1,0 +1,71 @@
+﻿
+@model DIYVCV.Models.ViewModels.ShowModule
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Module Description</h2>
+<div class="navbar">
+    <a class="navlink" href="/Module/DeleteConfirm/@Model.module.ModuleId">Delete</a></br>
+    <a class="navlink" href="/Module/Update/@Model.module.ModuleId">Update</a>
+</div>
+
+<h4>@Model.module.ModuleName</h4>
+<div style="overflow:hidden;">
+    <div style="float:left; margin-right:2%; width:50;">
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.module.ModuleId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.module.ModuleId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.module.ModuleName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.module.ModuleName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.module.ModuleCategory)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.module.ModuleCategory)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.module.ModuleDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.module.ModuleDescription)
+            </dd>
+
+        </dl>
+
+        <div style="float:left;margin-right:0%; width:50%;">
+            <div>
+                <h4>Components:</h4>
+                <div>
+                    @foreach (var component in Model.component)
+                    {
+                        <div>
+                            @Html.ActionLink(
+                            component.ComponentName + " " + component.ComponentValue + " Quantity: " + component.ComponentQuantity,
+                            "Show",
+                            "Component",
+                            new { id = component.ComponentId },
+                            new { })
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>

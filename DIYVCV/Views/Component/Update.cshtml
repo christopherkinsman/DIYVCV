@@ -1,0 +1,68 @@
+﻿@model DIYVCV.Models.ViewModels.UpdateComponent
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Module/Show/@Model.component.ComponentId">Back</a>
+</div>
+
+@using (Html.BeginForm("Update", "Component", new { id = Model.component.ComponentId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Update Player</h4>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.component.ComponentId, new { Name = "ComponentId" })
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.component.ComponentName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.component.ComponentName, new { htmlAttributes = new { @class = "form-control", Name = "ComponentName" } })
+                        @Html.ValidationMessageFor(model => model.component.ComponentName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.component.ComponentValue, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.component.ComponentValue, new { htmlAttributes = new { @class = "form-control", Name = "ComponentValue" } })
+                        @Html.ValidationMessageFor(model => model.component.ComponentValue, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.component.ModuleId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.component.ModuleId, new { htmlAttributes = new { @class = "form-control", Name = "ModuleId" } })
+                        @Html.ValidationMessageFor(model => model.component.ModuleId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.component.ComponentQuantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.component.ComponentQuantity, new { htmlAttributes = new { @class = "form-control", Name = "ComponentQuantity" } })
+                        @Html.ValidationMessageFor(model => model.component.ComponentQuantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>

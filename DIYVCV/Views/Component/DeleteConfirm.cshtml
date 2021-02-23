@@ -1,0 +1,17 @@
+﻿@model DIYVCV.Models.Component
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Delete Module</h2>
+<div class="navbar">
+    <a class="navlink" href="/Component/List">Component List</a>
+</div>
+
+<h2>Are you sure you want to delete @Model.ComponentName ?</h2>
+<div class="navbar">
+    <a href="/Component/Show/@Model.ComponentId">Cancel</a>
+</div>
+<form method="POST" action="/Component/Delete/@Model.ComponentId">
+    <div class="inpfield"><input type="submit" value="Confirm" /></div>
+</form> 
