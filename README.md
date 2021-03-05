@@ -14,8 +14,8 @@ I added an extra feature that will allow users to update the profile image for m
 ![Update Module](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/update-module.png)
 
 ![List Components](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/list-components.png)
-![Show Component](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/show-components.png)
-![Update Component](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/update-components.png)
+![Show Component](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/show-component.png)
+![Update Component](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/update-component.png)
 
 Reference
 - [varsity_mvp](https://github.com/christinebittle/varsity_mvp/)
