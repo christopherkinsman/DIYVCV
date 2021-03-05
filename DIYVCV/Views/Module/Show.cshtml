@@ -5,17 +5,34 @@
     ViewBag.Title = "Show";
 }
 
-<h2>Module Description</h2>
+<link href="~/Content/show-module.css" rel="stylesheet" type="text/css" />
+
+
+<h2>@Model.module.ModuleName</h2>
 <div class="navbar">
-    <a class="navlink" href="/Module/DeleteConfirm/@Model.module.ModuleId">Delete</a></br>
-    <a class="navlink" href="/Module/Update/@Model.module.ModuleId">Update</a>
+    <a class="navlink" href="/Module/DeleteConfirm/@Model.module.ModuleId">Delete Module</a></br>
+    <a class="navlink" href="/Module/Update/@Model.module.ModuleId">Update Module</a>
 </div>
 
-<h4>@Model.module.ModuleName</h4>
-<div style="overflow:hidden;">
-    <div style="float:left; margin-right:2%; width:50;">
+@{
+    //Use server rendering to determine an image
+    string pic = "/Content/modules/default.png";
+    string alt = "No Picture Was Provided.";
+    if (Model.module.ModuleHasPic)
+    {
+        pic = "/Content/Modules/" + Model.module.ModuleId + "." + Model.module.PicExtension;
+        alt = "Display Image for " + Model.module.ModuleName;
+    }
+}
 
-        <dl class="dl-horizontal">
+<div style="overflow:hidden;">
+    <div>
+
+        <dl>
+            <div class="imagecontainer featured">
+                <img src="@pic" alt="@alt" />
+            </div>
+
             <dt>
                 @Html.DisplayNameFor(model => model.module.ModuleId)
             </dt>
@@ -47,25 +64,38 @@
             <dd>
                 @Html.DisplayFor(model => model.module.ModuleDescription)
             </dd>
-
         </dl>
 
-        <div style="float:left;margin-right:0%; width:50%;">
+        <div>
             <div>
                 <h4>Components:</h4>
-                <div>
+                <table>
+                    <tr>
+                        <th>Value</th>
+                        <th>Quantity</th>
+                    </tr>
                     @foreach (var component in Model.component)
                     {
-                        <div>
+                        <tr>
+                            <td>
                             @Html.ActionLink(
-                            component.ComponentName + " " + component.ComponentValue + " Quantity: " + component.ComponentQuantity,
+                            component.ComponentName + " " + component.ComponentValue,
                             "Show",
                             "Component",
                             new { id = component.ComponentId },
                             new { })
-                        </div>
+                            </td>
+                            <td>
+                            @Html.ActionLink(
+                            component.ComponentQuantity,
+                            "Show",
+                            "Component",
+                            new { id = component.ComponentId },
+                            new { })
+                            </td>
+                        </tr>
                     }
-                </div>
+                </table>
             </div>
         </div>
     </div>

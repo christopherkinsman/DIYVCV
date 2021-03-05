@@ -12,6 +12,9 @@
             @Html.DisplayNameFor(model => model.ModuleId)
         </th>
         <th>
+            Image
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ModuleName)
         </th>
         <th>
@@ -20,23 +23,30 @@
         <th>
             @Html.DisplayNameFor(model => model.ModuleCategory)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModuleDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModuleLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModuleSchematic)
-        </th>
-        <th></th>
     </tr>
+
+
 
     @foreach (var item in Model)
     {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ModuleId)
+            </td>
+            <td>
+                @{ 
+                    string pic = "/Content/modules/default.png";
+                    string alt = "No Picture Was Provided.";
+                    if (item.ModuleHasPic)
+                    {
+                        pic = "/Content/Modules/" + item.ModuleId + "." + item.PicExtension;
+                        alt = "Profile shot of " + item.ModuleName;
+                    }
+                }
+
+                <div class="imagecontainer featured">
+                    <img src="@pic" height=100px />
+                </div>
             </td>
             <td>
                 <a href="/Module/Show/@item.ModuleId"> @Html.DisplayFor(modelItem => item.ModuleName)</a>
@@ -46,15 +56,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ModuleCategory)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModuleDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModuleLink)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModuleSchematic)
             </td>
         </tr>
     }

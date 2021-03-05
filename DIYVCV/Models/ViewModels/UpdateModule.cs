@@ -8,5 +8,7 @@ namespace DIYVCV.Models.ViewModels
     public class UpdateModule
     {
         public ModuleDto module { get; set; }
+
+        public IEnumerable<ComponentDto> component { get; set; }
     }
 }

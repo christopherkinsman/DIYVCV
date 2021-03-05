@@ -132,6 +132,11 @@ namespace DIYVCV.Controllers
                 ModuleDto SelectedModule = response.Content.ReadAsAsync<ModuleDto>().Result;
                 ViewModel.module = SelectedModule;
 
+                url = "moduledata/GetComponentsForModules/" + id;
+                response = client.GetAsync(url).Result;
+                IEnumerable<ComponentDto> SelectedComponents = response.Content.ReadAsAsync<IEnumerable<ComponentDto>>().Result;
+                ViewModel.component = SelectedComponents;
+
                 return View(ViewModel);
             }
             else
@@ -148,7 +153,7 @@ namespace DIYVCV.Controllers
         /// <example>GET : /Modle/Update/5</example>
         [HttpPost]
         [ValidateAntiForgeryToken()]
-        public ActionResult Update(int id, Module ModuleInfo)
+        public ActionResult Update(int id, Module ModuleInfo, Component ComponentInfo, HttpPostedFileBase ModulePic)
         {
             Debug.WriteLine(ModuleInfo.ModuleName);
             string url = "moduledata/updatemodule/" + id;
@@ -159,7 +164,19 @@ namespace DIYVCV.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("List");
+
+                if (ModulePic != null)
+                {
+                    Debug.WriteLine("Calling Update Image method.");
+                    url = "moduledata/updatemodulepic/" + id;
+
+                    MultipartFormDataContent requestcontent = new MultipartFormDataContent();
+                    HttpContent imagecontent = new StreamContent(ModulePic.InputStream);
+                    requestcontent.Add(imagecontent, "ModulePic", ModulePic.FileName);
+                    response = client.PostAsync(url, requestcontent).Result;
+                }
+
+                return RedirectToAction("Show", new { id = id } );
             }
             else
             {

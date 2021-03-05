@@ -1,12 +1,18 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: linear-gradient(to right, lavender, #192437);
+    font-family: Calibri;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: linen;
+    margin-top: 30px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -14,4 +20,18 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.navbar-fixed-top {
+    border: 0px;
+    background-color: #192437;
+}
+
+.load-image {
+   
+}
+
+.submit {
+    margin-left: 30px;
+    float: left;
 }

@@ -11,6 +11,8 @@ using System.Web.Http.Description;
 using DIYVCV.Models;
 using DIYVCV.Models.ViewModels;
 using System.Diagnostics;
+using System.Web;
+using System.IO;
 
 namespace DIYVCV.Controllers
 {
@@ -42,7 +44,9 @@ namespace DIYVCV.Controllers
                     ModuleCategory = Module.ModuleCategory,
                     ModuleDescription = Module.ModuleDescription,
                     ModuleLink = Module.ModuleLink,
-                    ModuleSchematic = Module.ModuleSchematic
+                    ModuleSchematic = Module.ModuleSchematic,
+                    ModuleHasPic = Module.ModuleHasPic,
+                    PicExtension = Module.PicExtension
                 };
                 ModuleDtos.Add(NewModule);
             }
@@ -75,7 +79,9 @@ namespace DIYVCV.Controllers
                 ModuleCategory = Module.ModuleCategory,
                 ModuleDescription = Module.ModuleDescription,
                 ModuleLink = Module.ModuleLink,
-                ModuleSchematic = Module.ModuleSchematic
+                ModuleSchematic = Module.ModuleSchematic,
+                ModuleHasPic = Module.ModuleHasPic,
+                PicExtension = Module.PicExtension
             };
             return Ok(ModuleDto);
         }
@@ -157,6 +163,9 @@ namespace DIYVCV.Controllers
             }
 
             db.Entry(module).State = EntityState.Modified;
+            // Picture update is handled by another method
+            db.Entry(module).Property(p => p.ModuleHasPic).IsModified = false;
+            db.Entry(module).Property(p => p.PicExtension).IsModified = false;
 
             try
             {
@@ -175,6 +184,79 @@ namespace DIYVCV.Controllers
             }
 
             return StatusCode(HttpStatusCode.NoContent);
+        }
+
+
+
+        /// <summary>
+        /// Receives module picture data, uploads it to the webserver and updates the module's HasPic option
+        /// </summary>
+        /// <param name="id">the module id</param>
+        /// <returns>status code 200 if successful.</returns>
+        /// <example>
+        /// curl -F modulepic=@file.jpg "https://localhost:xx/api/moduledata/updatemodulepic/1"
+        /// POST: api/ModuleData/UpdateModulePic/1
+        /// HEADER: enctype=multipart/form-data
+        /// FORM-DATA: image
+        /// </example>
+        [HttpPost]
+        public IHttpActionResult UpdateModulePic(int id)
+        {
+
+            bool haspic = false;
+            string picextension;
+            if (Request.Content.IsMimeMultipartContent())
+            {
+                Debug.WriteLine("Received multipart form data.");
+
+                int numfiles = HttpContext.Current.Request.Files.Count;
+                Debug.WriteLine("Files Received: " + numfiles);
+
+                if (numfiles == 1 && HttpContext.Current.Request.Files[0] != null)
+                {
+                    var ModulePic = HttpContext.Current.Request.Files[0];
+                    if (ModulePic.ContentLength > 0)
+                    {
+                        var valtypes = new[] { "jpeg", "jpg", "png", "gif" };
+                        var extension = Path.GetExtension(ModulePic.FileName).Substring(1);
+                        //Check the extension of the file
+                        if (valtypes.Contains(extension))
+                        {
+                            try
+                            {
+                                //file name is the id of the image
+                                string fn = id + "." + extension;
+
+                                //get a direct file path to ~/Content/modules/{id}.{extension}
+                                string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/modules/"), fn);
+
+                                //save the file
+                                ModulePic.SaveAs(path);
+
+                                //if these are all successful then we can set these fields
+                                haspic = true;
+                                picextension = extension;
+
+                                //Update the player haspic and picextension fields in the database
+                                Module SelectedModule = db.Modules.Find(id);
+                                SelectedModule.ModuleHasPic = haspic;
+                                SelectedModule.PicExtension = extension;
+                                db.Entry(SelectedModule).State = EntityState.Modified;
+
+                                db.SaveChanges();
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine("Module Image was not saved successfully.");
+                                Debug.WriteLine("Exception:" + ex);
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            return Ok();
         }
 
         /// <summary>

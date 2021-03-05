@@ -293,6 +293,10 @@
     <Compile Include="Migrations\202102231912020_second-migration.designer.cs">
       <DependentUpon>202102231912020_second-migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103041605247_module_picture_migration.cs" />
+    <Compile Include="Migrations\202103041605247_module_picture_migration.designer.cs">
+      <DependentUpon>202103041605247_module_picture_migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Component.cs" />
     <Compile Include="Models\DIYVCVDataContext.cs" />
@@ -309,6 +313,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\modules\default.png" />
+    <Content Include="Content\show-module.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -403,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102231912020_second-migration.resx">
       <DependentUpon>202102231912020_second-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103041605247_module_picture_migration.resx">
+      <DependentUpon>202103041605247_module_picture_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

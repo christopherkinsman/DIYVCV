@@ -1,0 +1,21 @@
+﻿img {
+    height: 200px;
+    float: right;
+
+    border: 2px solid white;
+    margin-right: 5%;
+}
+
+dd {
+    width: 50%;
+}
+
+th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
