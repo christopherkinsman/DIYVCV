@@ -309,6 +309,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="assets\home.png" />
+    <Content Include="assets\list-components.png" />
+    <Content Include="assets\list-modules.png" />
+    <Content Include="assets\show-component.png" />
+    <Content Include="assets\show-module.png" />
+    <Content Include="assets\update-component.png" />
+    <Content Include="assets\update-module.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
