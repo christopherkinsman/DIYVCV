@@ -18,4 +18,5 @@ I added an extra feature that will allow users to update the profile image for m
 ![Update Component](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/update-component.png)
 
 Reference
-- [varsity_mvp](https://github.com/christinebittle/varsity_mvp/)
+
+I refarenced this [varsity_mvp](https://github.com/christinebittle/varsity_mvp/) in order to set up controllers, models and add the ability to upload images. 
