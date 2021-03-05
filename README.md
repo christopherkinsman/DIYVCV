@@ -6,12 +6,12 @@ This is an example of an MVP that will Create, Read, Update and Delete from a da
 
 ![Home Screen](https://github.com/christkinsman/DIYVCV/assets/home.png)
 
-![List Modules](https://github.com/christkinsman/DIYVCV/assets/list-modules.png)
-![Show Module](https://github.com/christkinsman/DIYVCV/assets/show-module.png)
-![Update Module](https://github.com/christkinsman/DIYVCV/assets/update-module.png)
+![List Modules](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/home.png)
+![Show Module](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/show-module.png)
+![Update Module](https://github.com/christkinsman/DIYVCV/blob/master/DIYVCV/assets/update-module.png)
 
 
-<!-- ## To Run This Project
+## To Run This Project
 - Clone Codebase
 - **Right Click Project > View Project in File Explorer > Create Folder "App_Data"**
 - Tools > Nuget Package Manager > Package Manager Console
@@ -44,4 +44,3 @@ References
 - [Previous Project PetGrooming](https://github.com/christinebittle/PetGroomingMVC)
 - [Previous Project BlogProject 7th iteration](https://github.com/christinebittle/BlogProject_7)
 - [Utilized Lightbox plugin by Lokesh Dhakar](https://lokeshdhakar.com/projects/lightbox2/)
- -->
