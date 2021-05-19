@@ -7,13 +7,13 @@ namespace DIYVCV.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class module_picture_migration : IMigrationMetadata
+    public sealed partial class initialmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(module_picture_migration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202103041605247_module_picture_migration"; }
+            get { return "202105191923184_initial-migration"; }
         }
         
         string IMigrationMetadata.Source

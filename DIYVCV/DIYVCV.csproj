@@ -285,17 +285,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102200252445_initial-migration.cs" />
-    <Compile Include="Migrations\202102200252445_initial-migration.designer.cs">
-      <DependentUpon>202102200252445_initial-migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102231912020_second-migration.cs" />
-    <Compile Include="Migrations\202102231912020_second-migration.designer.cs">
-      <DependentUpon>202102231912020_second-migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103041605247_module_picture_migration.cs" />
-    <Compile Include="Migrations\202103041605247_module_picture_migration.designer.cs">
-      <DependentUpon>202103041605247_module_picture_migration.cs</DependentUpon>
+    <Compile Include="Migrations\202105191923184_initial-migration.cs" />
+    <Compile Include="Migrations\202105191923184_initial-migration.designer.cs">
+      <DependentUpon>202105191923184_initial-migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Component.cs" />
@@ -411,14 +403,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102200252445_initial-migration.resx">
-      <DependentUpon>202102200252445_initial-migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102231912020_second-migration.resx">
-      <DependentUpon>202102231912020_second-migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103041605247_module_picture_migration.resx">
-      <DependentUpon>202103041605247_module_picture_migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105191923184_initial-migration.resx">
+      <DependentUpon>202105191923184_initial-migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
