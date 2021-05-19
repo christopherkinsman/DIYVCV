@@ -1,4 +1,4 @@
-# DIYVCV MVP
+# DIYVCV 0.2
 
 DIYVCV stands for Do It Yourself Virtual Control Voltage. Virtual control voltage refers to modular synthesizers/electronic music instruments.
 This is a database that helps hobbyists pick a project they like and find electronic components needed to build that project at home. 
