@@ -25,9 +25,10 @@ namespace DIYVCV.Controllers
             };
             client = new HttpClient(handler);
             //change this to match your own local port number
-            client.BaseAddress = new Uri("https://localhost:44300/api/");
+            client.BaseAddress = new Uri("http://diyvcv-env.eba-pza4kszm.us-east-2.elasticbeanstalk.com/api/");
+            //client.BaseAddress = new Uri("https://localhost:44300/api/");
             client.DefaultRequestHeaders.Accept.Add(
-            new MediaTypeWithQualityHeaderValue("application/json")); 
+            new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         /// <summary>

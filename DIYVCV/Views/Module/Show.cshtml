@@ -34,14 +34,6 @@
             </div>
 
             <dt>
-                @Html.DisplayNameFor(model => model.module.ModuleId)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.module.ModuleId)
-            </dd>
-
-            <dt>
                 @Html.DisplayNameFor(model => model.module.ModuleName)
             </dt>
 
@@ -63,6 +55,22 @@
 
             <dd>
                 @Html.DisplayFor(model => model.module.ModuleDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.module.ModuleLink)
+            </dt>
+
+            <dd>
+                <a href="@Html.DisplayFor(model => model.module.ModuleLink)">@Html.DisplayFor(model => model.module.ModuleLink)</a>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.module.ModuleSchematic)
+            </dt>
+
+            <dd>
+                <a href="@Html.DisplayFor(model => model.module.ModuleSchematic)">@Html.DisplayFor(model => model.module.ModuleSchematic)</a>
             </dd>
         </dl>
 

@@ -278,7 +278,6 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ComponentController.cs" />
     <Compile Include="Controllers\ComponentDataController.cs" />
-    <Compile Include="Controllers\ComponentApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModuleDataController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />
@@ -290,6 +289,7 @@
       <DependentUpon>202105191923184_initial-migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AWSConnector.cs" />
     <Compile Include="Models\Component.cs" />
     <Compile Include="Models\DIYVCVDataContext.cs" />
     <Compile Include="Models\Module.cs" />
@@ -312,6 +312,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\modules\1.jpg" />
     <Content Include="Content\modules\default.png" />
     <Content Include="Content\show-module.css" />
     <Content Include="favicon.ico" />
@@ -372,6 +373,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\IdentityModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
